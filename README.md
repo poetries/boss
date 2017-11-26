@@ -23,6 +23,5 @@ npm install
 npm start
 
 #开启服务
-npm i nodemon -g #全局安装nodemon
-nodemon server/server.js
+npm run server
 ```

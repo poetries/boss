@@ -28,6 +28,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "mongoose": "^4.13.5",
+    "nodemon": "^1.12.1",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -47,7 +48,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "server": "nodemon server/server.js"
   },
   "jest": {
     "collectCoverageFrom": [
