@@ -1,8 +1,11 @@
+import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import {Provider} from 'react-redux';
+import Root from './containers/Root'
+import configureStore from './store/configureStore';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const store = configureStore();
+
+
+ReactDOM.render(<Root store={store} />, document.getElementById('root'));

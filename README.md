@@ -1,27 +1,17 @@
-react-redux-chatroom
+react-redux开发环境
 ---
-> `React`全家桶+`express`+`sock.io`开发聊天室
-
-技术栈
----
-
-- `React16`
-- `redux` 管理状态
-- `react-router4` 路由
-- `antd-mobile` 蚂蚁金服UI组件库
-- `express` 构建服务
-- `mongodb` 存储数据
-- `socket.io` 
+> 根据`create-react-app`自定义的一套开发环境，适用于使用`redux`情况
 
 Usage
 ---
 
 ```
+# 拉取这个分支的代码
+git clone -b create-react-redux-env https://github.com/poetries/react-redux-env.git 
+
+#安装依赖
 npm install
 
-#启动程序
-npm start
-
-#开启服务
-npm run server
+#运行
+npm start 或 yarn start
 ```
