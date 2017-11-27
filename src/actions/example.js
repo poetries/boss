@@ -1,8 +1,12 @@
-import * as ActionTypes from '../constants/ActionTypes';
+import * as ActionTypes from '../constants';
 
-export const example = (data)=>{
+export const Login = ()=>{
     return {
-        type:'EXAMPLE',
-        data
+        type:'LOGIN'
+    }
+}
+export const Logout = ()=>{
+    return {
+        type:'LOGINOUT'
     }
 }
