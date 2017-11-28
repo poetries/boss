@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import Root from './containers/Root'
 import configureStore from './store/configureStore';
+import 'antd-mobile/dist/antd-mobile.css';
 
 const store = configureStore();
 

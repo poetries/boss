@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+import {Redirect} from 'react-router-dom';
 
 class App extends Component {
-
+  state = {
+    isLogin:true
+  }
   render() {
     return (
       <div className="App">
-          {this.props.children}
+          {this.state.isLogin?this.props.children:<Redirect to='/login' />}
       </div>
     );
   }

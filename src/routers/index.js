@@ -3,17 +3,19 @@ import {Route,BrowserRouter as Router, Switch,Redirect} from 'react-router-dom';
 import App from '../App';
 import indexPage from '../containers/indexPage';
 import NotFindPage from '../containers/NotFindPage';
-import DashBoard from '../containers/DashBoard';
-import Auth from '../containers/Auth';
+import Login from '../containers/Login';
+import Register from '../containers/Register';
+import AuthRoute from '../components/AuthRoute';
+
 
 const routeMap = (
     <Router>
         <App>
+            <AuthRoute /> {/*检测路由是否ok*/}
             <Switch>
                 <Route exact path='/' component={indexPage} />
-                <Route  path='/dashboard' component={DashBoard} />
-                <Route  path='/login' component={Auth} />
-                <Redirect to='/' />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/register' component={Register} />
             </Switch>
         </App>
     </Router>
