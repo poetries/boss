@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {Redirect} from 'react-router-dom'; 
 import Logo from '../../components/Logo';
 import { List, InputItem, WingBlank, WhiteSpace,Button,Radio } from 'antd-mobile';
 import {connect} from 'react-redux';
@@ -34,9 +35,10 @@ export default class Register extends Component {
   }
   render() {
     const RadioItem = Radio.RadioItem;
-    console.log(this.props.msg)
+    
     return (
       <div>
+          {this.props.redirectTo?<Redirect to={this.props.redirectTo} />:null}
         <Logo />
         <List>
             {this.props.msg?<p className='error-msg'>{this.props.msg}</p>:null}

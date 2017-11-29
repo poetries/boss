@@ -5,6 +5,8 @@ import HomePage from './containers/HomePage';
 import NotFindPage from './containers/NotFindPage';
 import Login from './containers/Login';
 import Register from './containers/Register';
+import BossInfo from './containers/BossInfo';
+import GeniusInfo from './containers/GeniusInfo';
 import AuthRoute from './components/AuthRoute';
 import RouterMap from './routers';
 
@@ -20,6 +22,8 @@ class App extends Component {
               <Route exact path='/' component={HomePage} />
               <Route  path='/login' component={Login} />
               <Route  path='/register' component={Register} />
+              <Route  path='/bossinfo' component={BossInfo} />
+              <Route  path='/geniusinfo' component={GeniusInfo} />
               <Route  path='*' component={NotFindPage} />
           </Switch>
       </div>
