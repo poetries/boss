@@ -16,7 +16,7 @@ react-redux-chatroom
 Usage
 ---
 
-> 启动mongodDB服务,[环境搭建](/docs/MongoDB-env.md)
+> 启动mongodDB服务,[环境搭建](docs/MongodDB-env.md)
 
 ```
 npm install
