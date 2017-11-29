@@ -2,8 +2,15 @@ import React, { Component } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Logo from '../../components/Logo';
 import { List, InputItem, WingBlank, WhiteSpace,Button,Radio } from 'antd-mobile';
+import {connect} from 'react-redux';
+import {register} from '../../actions'
 
-
+@connect(
+    state=>state.user,
+    {
+        register
+    }
+)
 export default class Register extends Component {
   constructor(props) {
     super(props);
@@ -16,23 +23,23 @@ export default class Register extends Component {
       repeatpwd:'',
       type:'genius'
   }
-  register(){
-      this.props.history.push('/register');
-  }
+
   handleChange(key,val){
-      this.setState({
+      this.setState({   
           [key]:val
       })
   }
   handleRegister(){
-      console.log(this.state)
+      this.props.register(this.state)
   }
   render() {
     const RadioItem = Radio.RadioItem;
+    console.log(this.props.msg)
     return (
       <div>
         <Logo />
         <List>
+            {this.props.msg?<p className='error-msg'>{this.props.msg}</p>:null}
              <InputItem
                 onChange={v=>this.handleChange('user',v)}
             >用户</InputItem>

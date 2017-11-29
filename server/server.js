@@ -1,10 +1,15 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+const app = express()
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(cookieParser())
+
 const userRouter = require('./user');
-const mongoose = require('mongoose');
-const app = express();
-
-
-app.use('/user',userRouter); // userRouter子路由
+app.use('/user',userRouter)
 
 
 app.listen(9000,()=>{
