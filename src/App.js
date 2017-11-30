@@ -10,6 +10,7 @@ import Boss from './components/Boss';
 import Genius from './components/Genius';
 import GeniusInfo from './containers/GeniusInfo';
 import AuthRoute from './components/AuthRoute';
+import DashBoard from './components/DashBoard';
 import RouterMap from './routers';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
               <Route  path='/bossinfo' component={BossInfo} />
               <Route  path='/geniusinfo' component={GeniusInfo} />
               <Route  path='/genius' component={Genius} />
+              <Route  path='/dashboard' component={DashBoard} />
               <Route  path='/boss' component={Boss} />
               <Route  path='*' component={NotFindPage} />
           </Switch>
