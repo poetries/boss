@@ -35,9 +35,12 @@ export default class Register extends Component {
     this.props.login(this.state)
   }
   render() {
+    const avatar = this.props.avatar //登录之前头像信息是否存在，存在会影响util下的路径判断
+    const redirect = this.props.redirectTo
+    const path = avatar?`${redirect}info`:redirect
     return (
       <div>
-        {this.props.redirectTo?<Redirect to={this.props.redirectTo} />:null}
+        {redirect?<Redirect to={redirect} />:null}
         <Logo />
         <h2>登录页面</h2>
         <WingBlank>

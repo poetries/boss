@@ -7,6 +7,7 @@ import configureStore from './store/configureStore';
 import 'antd-mobile/dist/antd-mobile.css';
 import './index.css'
 import './App.css'
+import './config'
 
 const store = configureStore();
 

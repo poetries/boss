@@ -6,10 +6,25 @@ const utils = require('utility')
 const _filter = {'pwd':0,'__v':0}
 
 Router.get('/list',(req,res)=>{
-    // User.remove({},(e,d)=>{}) 清除用户信息
-    User.find({},(err,doc)=>{
-        return res.json(doc)
+	// User.remove({},(e,d)=>{}) 清除用户信息
+	const {type} = req.query
+    User.find({type},(err,doc)=>{
+        return res.json({code:0,data:doc})
     })
+})
+Router.post('/update',(req,res)=>{
+	const userid = req.cookies.userid
+	if(!userid) {
+		return json.dumps({code:1}) //dict转成str
+	}
+	const body = req.body
+	User.findByIdAndUpdate(userid,body,(err,doc)=>{
+		const data = Object.assign({},{
+			userid:doc.user,
+			type:doc.type
+		},body)
+		return res.json({code:0,data})
+	})
 })
 Router.post('/login', function(req,res){
 	const {user, pwd} = req.body
