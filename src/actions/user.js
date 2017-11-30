@@ -5,10 +5,10 @@ export const errorMsg = (msg)=>{
     return { msg, type:ActionTypes.ERROR_MSG }
 }
 
-const authSuccess = (data) =>{ 
+const authSuccess = (obj) =>{
+    const {pwd,...data} = obj
     return {type:ActionTypes.AUTH_SUCCESS,payload:data}
 }
-
 export const register =  ({user,pwd,repeatpwd,type}) => async (dispatch,getState)=>{
 
     if (!user || !pwd || !type) {
@@ -17,10 +17,10 @@ export const register =  ({user,pwd,repeatpwd,type}) => async (dispatch,getState
     if (pwd!==repeatpwd) {
         return dispatch(errorMsg("密码不一致"));
     }
-
+    
     try {
         const res = await axios.post('/user/register',{user,pwd,type})
-        if (res.status===200 && res.data.code ===0) {
+        if (res.status==200 && res.data.code ===0) {
             dispatch(authSuccess({user,pwd,type}))
         } else {
             dispatch(errorMsg(res.data.msg));
@@ -37,7 +37,7 @@ export const  login = ({user,pwd}) => async (dispatch,getState)=>{
     }
     try {
         const res = await axios.post('/user/login',{user,pwd})
-        if (res.status===200 && res.data.code ===0) {
+        if (res.status==200 && res.data.code ===0) {
             dispatch(authSuccess(res.data.data))
         } else {
             dispatch(errorMsg(res.data.msg));
@@ -53,7 +53,7 @@ const loadDataSuccess = (data) =>{
 export const loadData = ()=>async (dispatch,getState) =>{
     try{
         const res = await axios.get('/user/info')
-        if (res.status === 200 && res.data.code ===0) {
+        if (res.status === 200 && res.data.code ==0) {
             dispatch(loadDataSuccess(res.data.data))
         } else {
             dispatch(errorMsg(res.data.msg));
@@ -63,10 +63,11 @@ export const loadData = ()=>async (dispatch,getState) =>{
     }
 }
 
+
 export const update = (data)=>async (dispatch,getState) =>{
     try{
         const res = await axios.post('/user/update',data)
-        if (res.status === 200 && res.data.code ===0) {
+        if (res.status === 200 && res.data.code ==0) {
             dispatch(authSuccess(res.data.data))
         } else {
             dispatch(errorMsg(res.data.msg));
@@ -75,5 +76,3 @@ export const update = (data)=>async (dispatch,getState) =>{
         console.log(ex)
     }
 }
-
-

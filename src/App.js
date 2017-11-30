@@ -6,9 +6,10 @@ import NotFindPage from './containers/NotFindPage';
 import Login from './containers/Login';
 import Register from './containers/Register';
 import BossInfo from './containers/BossInfo';
+import Boss from './components/Boss';
+import Genius from './components/Genius';
 import GeniusInfo from './containers/GeniusInfo';
 import AuthRoute from './components/AuthRoute';
-import DashBoard from './containers/DashBoard';
 import RouterMap from './routers';
 
 class App extends Component {
@@ -20,12 +21,13 @@ class App extends Component {
       <div className="App">
           <AuthRoute /> {/*授权路由，验证登录信息*/}
           <Switch>
-              {/* <Route exact path='/' component={HomePage} /> */}
+              <Route exact path='/' component={HomePage} />
               <Route  path='/login' component={Login} />
               <Route  path='/register' component={Register} />
               <Route  path='/bossinfo' component={BossInfo} />
               <Route  path='/geniusinfo' component={GeniusInfo} />
-              <Route  path='/dashboard' component={DashBoard} />
+              <Route  path='/genius' component={Genius} />
+              <Route  path='/boss' component={Boss} />
               <Route  path='*' component={NotFindPage} />
           </Switch>
       </div>

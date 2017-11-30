@@ -3,4 +3,4 @@
  */
 
 export * from './user'
-export * from './chatUser'
+export * from './charuser'

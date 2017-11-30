@@ -45,9 +45,9 @@ class AuthRoute extends React.Component{
         // redux写法
         this.props.loadData()
 
-        // if (!this.props.isAuth) {
-        //     this.props.history.push('/login')
-        // } 
+        if (!this.props.isAuth) {
+            this.props.history.push('/login')
+        } 
     }
 }
 

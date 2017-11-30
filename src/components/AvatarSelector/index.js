@@ -8,7 +8,7 @@ class AvatarSelector extends React.Component{
         text:''
     }
     render(){
-        const avatarList = 'boy,girl,man,woman,bull,chick,crab,hedgehog,hippopotamus,koala,lemur,pig,tiger,whale,zebra'.split(',').map(v=> ({
+        const avatarList = 'boy,girl,man,woman,bull,chick,crab,hedgehog,hippo,koala,lemur,pig,tiger,whale,zebra'.split(',').map(v=> ({
             icon: require(`./icon/${v}.png`),
             text: v,
           }));

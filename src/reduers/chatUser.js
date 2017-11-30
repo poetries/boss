@@ -1,4 +1,5 @@
 import * as ActionTypes from '../constants';
+
 const initState = {
 	userlist:[]
 }

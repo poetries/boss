@@ -3,8 +3,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { NavBar,InputItem,TextareaItem,WhiteSpace,Button } from 'antd-mobile';
 import AvatarSelector from '../../components/AvatarSelector'
 import {connect} from 'react-redux'
-import {update} from '../../actions';
 import {Redirect} from 'react-router-dom'; 
+import {update} from '../../actions'
 
 
 @connect(
@@ -23,8 +23,7 @@ export default class BossInfo extends Component {
     title:'',
     desc:'',
     company:'',
-    money:'',
-    avatar:''
+    money:''
   }
   handleChange(key,val){
     this.setState({
@@ -32,26 +31,29 @@ export default class BossInfo extends Component {
     })
   }
   render() {
-    const path = this.props.location.pathname // /bossinfo
-    const redirect = this.props.redirectTo // /boss
+    const redirectTo = this.props.redirectTo
+    const pathname = this.props.location.pathname
     return (
       <div>
-          {redirect&&redirect!==path?<Redirect to={`dashboard${redirect}`} />:null}
+          {redirectTo&&redirectTo!==pathname?<Redirect to={redirectTo} />:null}
           <NavBar mode="dark" >BOSS信息完善</NavBar>
           <WhiteSpace />
           <AvatarSelector 
-            selectAvatar={iconName=>this.setState({avatar:iconName})}
+            selectAvatar={(imgname)=>{this.setState({avatar:imgname})}}
           />
-          <WhiteSpace />
+           <WhiteSpace />
           <InputItem
             onChange={v=>this.handleChange('title',v)}
           >招聘职位</InputItem>
+          <WhiteSpace />
           <InputItem
             onChange={v=>this.handleChange('company',v)}
           >公司名称</InputItem>
+          <WhiteSpace />
           <InputItem
             onChange={v=>this.handleChange('money',v)}
           >职位薪资</InputItem>
+          <WhiteSpace />
           <TextareaItem
             title="职位描述"
             placeholder="职位信息"
@@ -60,9 +62,9 @@ export default class BossInfo extends Component {
             autoHeight
           />
           <WhiteSpace />
-          <Button type='primary' onClick={()=>{
-            this.props.update(this.state)
-          }}>保存</Button>
+          <Button type='primary'
+            onClick={()=>this.props.update(this.state)}
+          >保存</Button>
       </div>
     )
   }

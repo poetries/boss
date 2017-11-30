@@ -35,11 +35,10 @@ export default class Register extends Component {
   }
   render() {
     const RadioItem = Radio.RadioItem;
-    const avatar = this.props.avatar //登录之前头像信息是否存在，存在会影响util下的路径判断
-    const redirect = this.props.redirectTo
+    
     return (
       <div>
-          {redirect?<Redirect to={avatar?redirect+'info':redirect} />:null}
+          {this.props.redirectTo?<Redirect to={this.props.redirectTo} />:null}
         <Logo />
         <List>
             {this.props.msg?<p className='error-msg'>{this.props.msg}</p>:null}

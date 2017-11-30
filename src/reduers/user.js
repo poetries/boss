@@ -6,14 +6,11 @@ const initState = {
     isAuth:false,
     user:'',
     type:'',
-    msg:'',
-    avatar:''
+    msg:''
 }
 export const user = (state=initState,action)=>{
     switch (action.type) {
         case ActionTypes.AUTH_SUCCESS:
-            return {...state,isAuth:true,redirectTo:getDirectPath(action.payload),...action.payload}
-        case ActionTypes.UPDATE_SUCCESS:
             return {...state,isAuth:true,redirectTo:getDirectPath(action.payload),...action.payload}
         case ActionTypes.LOADDATA_SUCCESS:
             return {...state,...action.payload}
