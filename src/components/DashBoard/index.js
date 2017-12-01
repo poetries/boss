@@ -6,16 +6,13 @@ import {Switch, Route} from 'react-router-dom'
 import NavFooter from '../NavFooter'
 import Boss from '../Boss'
 import Genius from '../Genius'
+import Msg from '../Msg'
+import User from '../User'
+import { Redirect } from 'react-router-dom'
 
-function Msg(){
-	return <h2>消息列表页面</h2>
-}
-function User(){
-	return <h2>个人中心页面</h2>
-}
+
 @connect(
-  state=>state.user,
-  {}
+  state=>state
 )
 export default class HomePage extends Component {
   constructor(props) {
@@ -25,9 +22,10 @@ export default class HomePage extends Component {
   render() {
     const {pathname} = this.props.location
 		const user = this.props.user
+		const path = this.props.match.path
     const navList = [
 			{
-				path:'/boss',
+				path:`${path}/boss`,
 				text:'牛人',
 				icon:'boss',
 				title:'牛人列表',
@@ -35,22 +33,22 @@ export default class HomePage extends Component {
 				hide:user.type=='genius'
 			},
 			{
-				path:'/genius',
-				text:'boss',
+				path:`${path}/genius`,
+				text:'Boss',
 				icon:'job',
 				title:'BOSS列表',
 				component:Genius,
 				hide:user.type=='boss'
 			},
 			{
-				path:'/msg',
+				path:`${path}/msg`,
 				text:'消息',
 				icon:'msg',
 				title:'消息列表',
 				component:Msg
 			},
 			{
-				path:'/me',
+				path:`${path}/me`,
 				text:'我',
 				icon:'user',
 				title:'个人中心',
@@ -58,15 +56,22 @@ export default class HomePage extends Component {
 			}
     ]
     // 这个页面重新写
-    const path = navList.find(v=>v.path===pathname)
+    const url = navList.find(v=>v.path===pathname)
     return (
       <div>
-				<NavBar className='fixd-header' mode='dard'>{path&&path.title}</NavBar>
+				<NavBar className='fixd-header' mode='dard'>{url&&url.title}</NavBar>
+			
 				<div style={{marginTop:45}}>
 						<Switch>
-							{navList.map(v=>(
+							{/* {navList.map(v=>(
 								<Route key={v.path} path={v.path} component={v.component}></Route>
-							))}
+							))} */}
+
+							<Route exact path={`${path}`} render={()=><Redirect to={`${path}/boss`}/>}/>
+							<Route exact path={`${path}/boss`} component={Boss} />
+							<Route path={`${path}/genius`} component={Genius} />
+							<Route path={`${path}/msg`} component={Msg} />
+							<Route path={`${path}/me`} component={User} />
 						</Switch>
 				</div>
 

@@ -14,6 +14,8 @@ export const user = (state=initState,action)=>{
             return {...state,isAuth:true,redirectTo:getDirectPath(action.payload),...action.payload}
         case ActionTypes.LOADDATA_SUCCESS:
             return {...state,...action.payload}
+        case ActionTypes.LOGOUT:
+            return {...initState,redirectTo:'/login'}    
         case ActionTypes.ERROR_MSG:
             return {...state,isAuth:false,msg:action.msg}
         default:
