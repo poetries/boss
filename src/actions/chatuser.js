@@ -1,7 +1,8 @@
 import * as ActionTypes from '../constants';
 import axios from 'axios'
 
-export const userList = (data) =>{
+export const userList = (obj) =>{
+    const {pwd,...data} = obj
 	return { type:ActionTypes.USER_LIST, payload:data}
 }
 

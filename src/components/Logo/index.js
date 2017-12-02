@@ -1,7 +1,8 @@
 import React from 'react'
 import logoImg from './job.png'
 import './logo.css'
-class Logo extends React.Component{
+
+export default class Logo extends React.Component{
 
 	render(){
 		return (
@@ -11,5 +12,3 @@ class Logo extends React.Component{
 		)
 	}
 }
-
-export default Logo

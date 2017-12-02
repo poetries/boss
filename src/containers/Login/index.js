@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Logo from '../../components/Logo';
+import Logo from '@/components/Logo';
 import { List, InputItem, WingBlank, WhiteSpace,Button } from 'antd-mobile';
-import {login} from '../../actions'
+import {login} from '@/actions'
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom'; 
 
@@ -12,10 +11,9 @@ import {Redirect} from 'react-router-dom';
     login
   }
 )
-export default class Register extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     this.register = this.register.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
   }
@@ -62,3 +60,5 @@ export default class Register extends Component {
     )
   }
 }
+
+export default Login

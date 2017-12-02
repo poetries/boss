@@ -1,4 +1,4 @@
-import * as ActionTypes from '../constants';
+import * as ActionTypes from '@/constants';
 import axios from 'axios';
 
 export const errorMsg = (msg)=>{
@@ -74,11 +74,5 @@ export const update = (data)=>async (dispatch,getState) =>{
         }
     } catch(ex) {
         console.log(ex)
-    }
-}
-
-export const logOut = ()=>{
-    return {
-        type:ActionTypes.LOGOUT
     }
 }

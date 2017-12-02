@@ -1,6 +1,6 @@
 // 连接mongo 并且使用React这个集合，没有就会新建
 const mongoose = require('mongoose');
-const DB_URL = 'mongodb://127.0.0.1:27017/react-chat';
+const DB_URL = 'mongodb://127.0.0.1:27017/react-find-job';
 mongoose.connect(DB_URL,{useMongoClient:true});
 
 mongoose.connection.on('connected',()=>{
