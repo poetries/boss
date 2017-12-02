@@ -2,6 +2,8 @@ import React from 'react';
 import {Route,BrowserRouter as Router, Switch,Redirect} from 'react-router-dom'; //v4
 import Login from '@/containers/Login';
 import Register from '@/containers/Register';
+import BossInfo from '@/containers/BossInfo';
+import GeniusInfo from '@/containers/GeniusInfo';
 
 const routes = [
     {
@@ -12,7 +14,17 @@ const routes = [
     {
       path:'/register',
       component:Register,
-      exact:false
+      exact:true
+    },
+    {
+      path:'/bossinfo',
+      component:BossInfo,
+      exact:true
+    },
+    {
+      path:'/geniusinfo',
+      component:GeniusInfo,
+      exact:true
     }
 ]
 
