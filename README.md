@@ -107,3 +107,11 @@ git clone -b [分支名] https://github.com/poetries/react-findJob.git
 
 snapShot
 ---
+
+拓展阅读
+---
+
+- [React 技术栈系列教程-阮一峰](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
+- [awesome-react](https://github.com/enaqx/awesome-react)
+- [redux中文文档](http://www.redux.org.cn/)
+- [React在线编辑器](https://codesandbox.io)
