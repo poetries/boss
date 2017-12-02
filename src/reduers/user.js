@@ -3,7 +3,6 @@ import {getDirectPath} from '../utils/getDirectPath';
 
 const initState = {
     redirectTo:'',
-    isAuth:false,
     user:'',
     type:'',
     msg:''
@@ -11,11 +10,13 @@ const initState = {
 export const user = (state=initState,action)=>{
     switch (action.type) {
         case ActionTypes.AUTH_SUCCESS:
-            return {...state,isAuth:true,redirectTo:getDirectPath(action.payload),...action.payload}
+            return {...state,redirectTo:getDirectPath(action.payload),...action.payload}
         case ActionTypes.LOADDATA_SUCCESS:
             return {...state,...action.payload}
         case ActionTypes.ERROR_MSG:
-            return {...state,isAuth:false,msg:action.msg}
+            return {...state,msg:action.msg}
+        case ActionTypes.LOGOUT:
+            return {...initState,redirectTo:'/login'}    
         default:
             return state;
     }

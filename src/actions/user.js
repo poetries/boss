@@ -76,3 +76,7 @@ export const update = (data)=>async (dispatch,getState) =>{
         console.log(ex)
     }
 }
+
+export const logoutSubmit = ()=>{
+	return { type:ActionTypes.LOGOUT }
+}

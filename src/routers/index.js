@@ -4,8 +4,10 @@ import Login from '@/containers/Login';
 import Register from '@/containers/Register';
 import BossInfo from '@/containers/BossInfo';
 import GeniusInfo from '@/containers/GeniusInfo';
-
-const routes = [
+import DashBoard from '@/components/DashBoard';
+import AuthRoute from '@/components/AuthRoute';
+ 
+const routeRules = [
     {
       path:'/login',
       component:Login,
@@ -25,24 +27,31 @@ const routes = [
       path:'/geniusinfo',
       component:GeniusInfo,
       exact:true
+    },
+    {
+      path:'',// 只要switch下没有匹配到就渲染默认路由
+      component:DashBoard,
+      exact:false
     }
 ]
 
 const routeMap = (
     <Router>
-        <Switch>
-            {routes.map((v,index)=>(
-                <Route 
-                    key={index} 
-                    path={v.path} 
-                    component={v.component} 
-                    exact={v.exact} 
-                />
-                ))
-            }
-
-            {/* <Redirect to='/login' /> */}
-        </Switch>
+        <div>
+            <AuthRoute /> {/*授权路由，验证用户登录信息*/}
+            <Switch>
+                {routeRules.map((v,index)=>(
+                    <Route 
+                        key={index} 
+                        path={v.path} 
+                        component={v.component} 
+                        exact={v.exact} 
+                    />
+                    ))
+                }
+            </Switch>
+            
+        </div>
     </Router>
 )
 
