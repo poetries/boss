@@ -39,8 +39,9 @@ npm run server
 git clone -b [分支名] https://github.com/poetries/react-findJob.git
 ```
 
-- [登录和注册部分](https://github.com/poetries/react-findJob/tree/login-register)
-- [boss信息和牛人信息部分](https://github.com/poetries/react-findJob/tree/bossinfo-geniusinfo)
+- [登录和注册分支](https://github.com/poetries/react-findJob/tree/login-register)
+- [boss信息和牛人信息分支](https://github.com/poetries/react-findJob/tree/bossinfo-geniusinfo)
+- [Boss、牛人列表及个人中心分支](https://github.com/poetries/react-findJob/tree/boss-genius-usercenter)
 
 
 项目结构
