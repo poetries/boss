@@ -37,7 +37,7 @@ export default class DashBoard extends Component {
                 text:'Boss',
                 icon:'job',
                 title:'BOSS列表',
-                component:Boss,
+                component:Genius,
                 exact:false,
                 hide:user.type==='boss'
             },

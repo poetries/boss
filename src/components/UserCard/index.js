@@ -30,8 +30,9 @@ export default class UserCard extends Component {
                                         {v.desc.split('\n').map(d=>(
                                             <div key={d}>{d}</div>
                                         ))}
-                                        {v.type==='boss'?<div>薪资:{v.money}</div> :null}
+                                       
                                     </Body>
+                                    <Card.Footer extra= {v.type==='boss'?<div>薪资:<span style={{color:"#f03"}}>{v.money}</span></div> :null}   />
                                 </Card>
                             ):null
                         )):'加载中...'
