@@ -1,6 +1,6 @@
-react-redux-chatroom
+react-findJob
 ---
-> `React`全家桶+`express`+`sock.io`开发聊天室
+> `React`全家桶+`express`+`sock.io`开发找工作App
 
 技术栈
 ---
