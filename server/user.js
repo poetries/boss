@@ -2,8 +2,14 @@ const express = require('express');
 const model  = require('./model')
 const Router = express.Router();
 const User = model.getModel('user')
+const Chat = model.getModel('chat')
 const utils = require('utility')
 const _filter = {'pwd':0,'__v':0}
+
+// 清除聊天信息
+// Chat.remove({},(e,d)=>{
+
+// })
 
 Router.get('/list',(req,res)=>{
 	// User.remove({},(e,d)=>{}) 清除用户信息
@@ -11,6 +17,25 @@ Router.get('/list',(req,res)=>{
     User.find({type},(err,doc)=>{
         return res.json({code:0,data:doc})
     })
+})
+Router.get('/getmsglist',function(req,res){
+	// 从cookie中获取所有的用户信息
+	const user = req.cookies.userid
+
+	User.find({},function(e,userdoc){
+		let users = {}
+		userdoc.forEach(v=>{
+			users[v._id] = {name:v.user, avatar:v.avatar}
+		})
+		Chat.find({'$or':[{from:user},{to:user}]},function(err,doc){
+			if (!err) {
+				return res.json({code:0,msgs:doc, users:users})
+			}
+		})
+
+	})
+	// {'$or':[{from:user,to:user}]}
+
 })
 Router.post('/update',(req,res)=>{
 	const userid = req.cookies.userid

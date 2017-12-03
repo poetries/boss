@@ -6,6 +6,7 @@ import BossInfo from '@/containers/BossInfo';
 import GeniusInfo from '@/containers/GeniusInfo';
 import DashBoard from '@/components/DashBoard';
 import AuthRoute from '@/components/AuthRoute';
+import Chat from '@/components/Chat';
  
 const routeRules = [
     {
@@ -26,6 +27,11 @@ const routeRules = [
     {
       path:'/geniusinfo',
       component:GeniusInfo,
+      exact:true
+    },
+    {
+      path:'/chat/:user',
+      component:Chat,
       exact:true
     },
     {

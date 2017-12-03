@@ -5,9 +5,17 @@ import {withRouter} from 'react-router-dom'
 
 @withRouter
 export default class UserCard extends Component {
+    constructor(props){
+        super(props)
+    }
     static propTypes = {
 		userlist: PropTypes.array.isRequired
-	}
+    }
+    handleClick(v){
+    //    this.props.history.push(`/chat/${v.user}`)
+    // _id user在mongodb中的唯一标识
+       this.props.history.push(`/chat/${v._id}`)
+    }
     render() {
         
         const Header = Card.Header
@@ -18,7 +26,11 @@ export default class UserCard extends Component {
                     {
                        this.props.userlist?this.props.userlist.map(v=>(
                             v.avatar?(
-                                <Card key={v._id}>
+                                <Card 
+                                    key={v._id} 
+                                    onClick={()=>this.handleClick(v)}
+                                    style={{zIndex:'100'}}
+                                >
                                     <Header
                                        title={v.user}
                                        thumb={require(`./img/${v.avatar}.png`)}

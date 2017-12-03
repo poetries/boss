@@ -1,10 +1,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import {TabBar} from 'antd-mobile'
+import {TabBar,badge} from 'antd-mobile'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 @withRouter
+@connect(
+	state=>state.chat
+)
 export default class NavFooter extends React.Component{
 	static propTypes = {
 		data: PropTypes.array.isRequired
@@ -17,6 +21,7 @@ export default class NavFooter extends React.Component{
 			<TabBar>
 				{navList.map(v=>(
 					<TabBar.Item
+						badge={v.path==='/msg'?this.props.unread:''}
 						key={v.path}
 						title={v.text}
 						icon={{uri: require(`./img/${v.icon}.png`)}}
