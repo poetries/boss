@@ -5,6 +5,7 @@ import {getMsgList,sendMsg,recvMsg} from '@/actions'
 // import io from 'socket.io-client'
 // const socket = io('ws://localhost:9000')
 import {getChatId} from '@/utils/getChatId'
+import QueueAnim from 'rc-queue-anim';
 
 @connect(
     state=>state,
@@ -77,26 +78,28 @@ export default class Chat extends Component {
 					{users[userid].name}
 				</NavBar>
 
-               {chatmsgs.map(v=>{
-                   const avatar = require(`../UserCard/img/${users[v.from].avatar}.png`)
-                   {/*把用户聊天信息分成两部分*/}
-                   return v.from ==userid?(
-                       // 对方发来的
-                       <List key={v._id}>
-                           <Item
-                               thumb={avatar} 
-                           >{v.content}</Item>
-                       </List>
-                   ):(
-                       // 显示我发的
-                     <List key={v._id}>
-                         <Item 
-                            extra={<img src={avatar} />}
-                            className='chat-me'
-                         >{v.content}</Item>
-                     </List>
-                   )
-               })}
+              <QueueAnim delay={300}>     
+                {chatmsgs.map(v=>{
+                    const avatar = require(`../UserCard/img/${users[v.from].avatar}.png`)
+                    {/*把用户聊天信息分成两部分*/}
+                    return v.from ==userid?(
+                        // 对方发来的
+                        <List key={v._id}>
+                            <Item
+                                thumb={avatar} 
+                            >{v.content}</Item>
+                        </List>
+                    ):(
+                        // 显示我发的
+                        <List key={v._id}>
+                            <Item 
+                                extra={<img src={avatar} />}
+                                className='chat-me'
+                            >{v.content}</Item>
+                        </List>
+                    )
+                })}
+                </QueueAnim>
                 <div className='stick-footer'>
                     <List>
                         <InputItem

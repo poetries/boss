@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route,Redirect} from 'react-router-dom'
 import {NavBar} from 'antd-mobile'
 import Boss from '@/components/Boss'
 import Genius from '@/components/Genius'
@@ -9,6 +9,7 @@ import UserCenter from '@/components/UserCenter'
 import NavFooter from '@/components/NavFooter'
 import {connect} from 'react-redux'
 import {getMsgList,sendMsg,recvMsg} from '@/actions'
+import QueueAnim from 'rc-queue-anim';
 
 @connect(
     state=>state,
@@ -64,21 +65,22 @@ export default class DashBoard extends Component {
             }
         ]
 
-        const path = navList.find(v=>v.path===pathname)
+        const page = navList.find(v=>v.path===pathname)
+
         return (
             <div>
-                <NavBar className='fixd-header' mode='dard'>{path&&path.title}</NavBar>
+                <NavBar className='fixd-header' mode='dard'>{page&&page.title}</NavBar>
                 <div style={{marginTop:45}}>
-                    <Switch>
-                        {navList.map(v=>(
-                            <Route 
-                                key={v.path} 
-                                path={v.path} 
-                                component={v.component}
-                                exact={v.exact} 
-                            />     
-                        ))}
-                    </Switch>
+                {/*让动画生效只渲染一个Route，根据当前的path决定组件*/}
+                    {pathname==='/'||pathname==='/dashboard'?<Redirect to='/genius' />:''}
+                    <QueueAnim type='scaleX'> 
+                        <Route 
+                            key={page&&page.path} 
+                            path={page&&page.path} 
+                            component={page&&page.component}
+                            exact={page&&page.exact} 
+                        />     
+                    </QueueAnim> 
                 </div>
                 <NavFooter data={navList} />
             </div>
