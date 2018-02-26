@@ -1,6 +1,6 @@
 react-findJob
 ---
-> `React`全家桶+`express`+`sock.io`开发找工作App
+> `React`全家桶+`express`+`sock.io`+'mongodb'开发招聘应用
 
 技术栈
 ---
@@ -106,18 +106,7 @@ git clone -b [分支名] https://github.com/poetries/react-findJob.git
 |__
 </pre>
 
-snapShot
----
 
-![](docs/snapshot/1.png)
-![](docs/snapshot/2.png)
-![](docs/snapshot/3.png)
-![](docs/snapshot/4.png)
-![](docs/snapshot/5.png)
-![](docs/snapshot/6.png)
-![](docs/snapshot/7.png)
-![](docs/snapshot/8.png)
-![](docs/snapshot/9.png)
 
 拓展阅读
 ---
