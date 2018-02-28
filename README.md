@@ -1,6 +1,6 @@
-react-findJob
+boss
 ---
-> `React`全家桶+`express`+`sock.io`+'mongodb'开发招聘应用
+> `React`全家桶+`express`+`sock.io`+`mongodb`开发招聘应用
 
 技术栈
 ---
