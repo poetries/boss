@@ -34,14 +34,14 @@ npm run server
 
 ```bash
 # 使用方法 
-# 如:git clone -b login-register https://github.com/poetries/react-findJob.git
+# 如:git clone -b login-register https://github.com/poetries/boss.git
 
-git clone -b [分支名] https://github.com/poetries/react-findJob.git
+git clone -b [分支名] https://github.com/poetries/boss.git
 ```
 
-- [登录和注册分支](https://github.com/poetries/react-findJob/tree/login-register)
-- [boss信息和牛人信息分支](https://github.com/poetries/react-findJob/tree/bossinfo-geniusinfo)
-- [Boss、牛人列表及个人中心分支](https://github.com/poetries/react-findJob/tree/boss-genius-usercenter)
+- [登录和注册分支](https://github.com/poetries/boss/tree/login-register)
+- [boss信息和牛人信息分支](https://github.com/poetries/boss/tree/bossinfo-geniusinfo)
+- [Boss、牛人列表及个人中心分支](https://github.com/poetries/boss/tree/boss-genius-usercenter)
 
 
 项目结构
