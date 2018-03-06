@@ -29,12 +29,11 @@ class User extends React.Component{
 		const props = this.props
 		const Item = List.Item
 		const Brief = Item.Brief
-		const user = browserCookie.get('userid')
 		if (!props.avatar) {
       		   return null
     		}
 		console.log(props)
-		return user?(
+		return props.user?(
 			<div>
 				<Result
 					img={<img src={require(`../UserCard/img/${props.avatar}.png`)} style={{width:50}} alt="" />}
