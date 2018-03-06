@@ -29,11 +29,10 @@ class User extends React.Component{
 		const props = this.props
 		const Item = List.Item
 		const Brief = Item.Brief
-		if (!props.avatar) {
+		if (!props.user) {
       		   return null
     		}
-		console.log(props)
-		return props.user?(
+		return (
 			<div>
 				<Result
 					img={<img src={require(`../UserCard/img/${props.avatar}.png`)} style={{width:50}} alt="" />}
@@ -56,7 +55,7 @@ class User extends React.Component{
 					<Item onClick={this.logout} style={{zIndex:'1'}}>退出登录</Item>
 				</List>
 			</div>
-		):<Redirect to={props.redirectTo} />
+		)
 
 	}
 }
