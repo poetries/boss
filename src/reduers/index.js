@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import {user} from './user';
-import {chatuser} from './chatuser';
+import {chatuser} from './chatUser';
 import {chat} from './chat';
 
 const reducers = {
